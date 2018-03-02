@@ -1,9 +1,15 @@
 package com.example.android.cricketscorekeeper;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.cricketscorekeeper.R;
 
@@ -24,13 +30,16 @@ public class MainActivity extends AppCompatActivity {
     //Tracks last action
     int lastScore = 0;
 
-    //Tracks which score/wickets was last updated
-    int detector = 0;
+    //Tracks which runs/outs was last updated
+    String detector;
+
+    String nameTeamA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 
     /**
      * Increase the runs for Team A by 6 points.
@@ -39,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         runsTeamA = runsTeamA + 6;
         displayRunsForTeamA(runsTeamA);
         lastScore = 6;
-        detector = runsTeamA;
+        detector = "TeamA";
     }
 
     /**
@@ -49,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         runsTeamA = runsTeamA + 4;
         displayRunsForTeamA(runsTeamA);
         lastScore = 4;
-        detector = runsTeamA;
+        detector = "TeamA";
     }
 
     /**
@@ -59,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         runsTeamA = runsTeamA + 1;
         displayRunsForTeamA(runsTeamA);
         lastScore = 1;
-        detector = runsTeamA;
+        detector = "TeamA";
     }
 
     /**
@@ -69,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         wicketsOutTeamA = wicketsOutTeamA + 1;
         displayWicketsOutForTeamA(wicketsOutTeamA);
         lastScore = 1;
-        detector = wicketsOutTeamA;
+        detector = "TeamAOuts";
     }
 
     /**
@@ -79,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         runsTeamB = runsTeamB + 6;
         displayRunsForTeamB(runsTeamB);
         lastScore = 6;
-        detector = runsTeamB;
+        detector = "TeamB";
     }
 
     /**
@@ -89,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         runsTeamB = runsTeamB + 4;
         displayRunsForTeamB(runsTeamB);
         lastScore = 4;
-        detector = runsTeamB;
+        detector = "TeamB";
     }
 
     /**
@@ -99,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         runsTeamB = runsTeamB + 1;
         displayRunsForTeamB(runsTeamB );
         lastScore = 1;
-        detector = runsTeamB;
+        detector = "TeamB";
     }
 
     /**
@@ -109,26 +118,27 @@ public class MainActivity extends AppCompatActivity {
         wicketsOutTeamB = wicketsOutTeamB + 1;
         displayWicketsOutForTeamB(wicketsOutTeamB);
         lastScore = 1;
-        detector = wicketsOutTeamB;
+        detector = "TeamBOuts";
     }
 
     /**
      * Undo es last action.
      */
+
     public void undo_last_action (View view) {
-        if (detector == runsTeamA) {
-            runsTeamA = runsTeamA - lastScore;
-            displayRunsForTeamA(runsTeamA);
-        } else if (detector == wicketsOutTeamA) {
+        if (detector == "TeamA") {
+           runsTeamA = runsTeamA - lastScore;
+           displayRunsForTeamA(runsTeamA);
+        } else if (detector == "TeamAOuts") {
             wicketsOutTeamA = wicketsOutTeamA - lastScore;
             displayWicketsOutForTeamA(wicketsOutTeamA);
-        } else if (detector == runsTeamB) {
-            runsTeamB = runsTeamB - lastScore;
-            displayRunsForTeamB(runsTeamB);
-        } else if (detector == wicketsOutTeamB) {
-            wicketsOutTeamB = wicketsOutTeamB - lastScore;
+        } else if (detector == "TeamB") {
+           runsTeamB = runsTeamB - lastScore;
+           displayRunsForTeamB(runsTeamB);
+        } else if (detector == "TeamBOuts") {
+           wicketsOutTeamB = wicketsOutTeamB - lastScore;
             displayWicketsOutForTeamB(wicketsOutTeamB);
-        }
+       }
         lastScore = 0;
     }
 
@@ -141,16 +151,47 @@ public class MainActivity extends AppCompatActivity {
         displayWicketsOutForTeamA(wicketsOutTeamA=0);
         displayWicketsOutForTeamB(wicketsOutTeamB=0);
         display("");
+        //Clears name of TeamA
+        EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
+        nameOfTeamA.getText().clear();
+        //Clears name of TeamB
+        EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
+        nameOfTeamB.getText().clear();
+
     }
+
+    EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
+    nameOfTeamA.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+   /* When focus is lost check that the text field
+   * has valid values.
+   */
+            if (!hasFocus) {
+                String nameTeamA = nameOfTeamA.getText().toString();
+            }
+        }
+    });
 
     /**
      * Displays result of the match
      */
     public void match_results (View view) {
+        //Figure out name of TeamA
+        //EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
+        //String nameTeamA = nameOfTeamA.getText().toString();
+
+        //Figure out name of the TeamB
+        EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
+        String nameTeamB = nameOfTeamB.getText().toString();
+
         if (runsTeamA > runsTeamB) {
-            display("TeamA won the match");
-        } else {
-            display("Team B won the match");
+            display(nameTeamA + " won the match");
+        } else if (runsTeamA < runsTeamB){
+            display(nameTeamB + " won the match");
+        }else{
+            display("Tie");
         }
     }
 
