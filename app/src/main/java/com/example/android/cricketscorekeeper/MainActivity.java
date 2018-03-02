@@ -32,12 +32,40 @@ public class MainActivity extends AppCompatActivity {
 
     //Tracks which runs/outs was last updated
     String detector;
-
     String nameTeamA;
+    String nameTeamB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
+        final EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
+        nameOfTeamA.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+   /* When focus is lost check that the text field
+   * has valid values.
+   */
+                if (!hasFocus) {
+                    nameTeamA=nameOfTeamA.getText().toString();
+                }
+            }
+        });
+
+        nameOfTeamB.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+   /* When focus is lost check that the text field
+   * has valid values.
+   */
+                if (!hasFocus) {
+                    nameTeamB=nameOfTeamB.getText().toString();
+                }
+            }
+        });
     }
 
 
@@ -160,19 +188,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
-    nameOfTeamA.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-   /* When focus is lost check that the text field
-   * has valid values.
-   */
-            if (!hasFocus) {
-                String nameTeamA = nameOfTeamA.getText().toString();
-            }
-        }
-    });
 
     /**
      * Displays result of the match
@@ -183,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
         //String nameTeamA = nameOfTeamA.getText().toString();
 
         //Figure out name of the TeamB
-        EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
-        String nameTeamB = nameOfTeamB.getText().toString();
+        //EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
+        //String nameTeamB = nameOfTeamB.getText().toString();
 
         if (runsTeamA > runsTeamB) {
             display(nameTeamA + " won the match");

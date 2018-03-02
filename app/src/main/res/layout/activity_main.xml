@@ -157,7 +157,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:textColor="#616161"
-                android:textSize="14sp"
+                android:textSize="14sp"/>
 
 
             <LinearLayout
