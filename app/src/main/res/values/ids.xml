@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="teamA_wickets_out" type="id" />
+    <item name="six_TeamA" type="id" />
+    <item name="add_four_teama" type="id">add_four_teama</item>
+    <item name="four" type="id">add_four_teama</item>
+    <item name="five" type="id">add_four</item>
 </resources>
