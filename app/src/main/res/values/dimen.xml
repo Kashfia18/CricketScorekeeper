@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="name_marginTop">8dp</dimen>
+    <dimen name="view_marginTop">8dp</dimen>
+    <dimen name="view_layout_width">1dp</dimen>
+    <dimen name="center_view_marginTop">16dp</dimen>
+    <dimen name="runs_text_marginTop">2dp</dimen>
+    <dimen name="runs_text_marginBottom">10dp</dimen>
+    <dimen name="points_marginBottom">8dp</dimen>
+    <dimen name="points_marginLeft">24dp</dimen>
+    <dimen name="points_marginRight">24dp</dimen>
     <dimen name="name_text_size">14sp</dimen>
     <dimen name="runs_text_size">35sp</dimen>
+    <dimen name="undo_text_marginBottom">2dp</dimen>
+    <dimen name="results_text_marginBottom">2dp</dimen>
+    <dimen name="results_display_text_marginBottom">2dp</dimen>
+    <dimen name="results_display_text_size">30sp</dimen>
+    <dimen name="reset_all_text_marginBottom">2dp</dimen>
 </resources>

@@ -10,11 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/width_0dp_for_equal_weight_horizontally"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -48,10 +47,10 @@
                     android:textSize="@dimen/runs_text_size" />
 
                 <View
-                    android:layout_width="1dp"
+                    android:layout_width="@dimen/view_layout_width"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:background="@android:color/darker_gray" />
+                    android:layout_marginTop="@dimen/view_marginTop"
+                    android:background="@color/viewTextColor" />
 
                 <TextView
                     android:id="@+id/teamA_wickets"
@@ -60,9 +59,9 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="35sp" />
+                    android:text="@string/team_a_outs"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/runs_text_size" />
 
             </LinearLayout>
 
@@ -74,26 +73,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/runs_text_marginTop"
+                    android:layout_marginBottom="@dimen/runs_text_marginBottom"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="Runs"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:text="@string/team_a_runs_text"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/name_text_size" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/runs_text_marginTop"
+                    android:layout_marginBottom="@dimen/runs_text_marginBottom"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="Outs"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:text="@string/team_a_outs_text"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/name_text_size" />
 
             </LinearLayout>
 
@@ -101,48 +100,48 @@
                 android:id="@+id/add_six_to_teamA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="+6 Runs" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_6_runs" />
 
             <Button
                 android:id="@+id/add_four_to_teamA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="+4 Runs" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_4_runs" />
 
             <Button
                 android:id="@+id/add_one_to_teamA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="+1 RUN" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_1_run" />
 
             <Button
                 android:id="@+id/add_one_out_for_TeamA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="Outs" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_outs" />
 
         </LinearLayout>
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="@dimen/view_layout_width"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray" />
+            android:layout_marginTop="@dimen/center_view_marginTop"
+            android:background="@color/viewTextColor" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/width_0dp_for_equal_weight_horizontally"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -152,12 +151,12 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:inputType="textCapWords"
-                android:hint="Team B"
-                android:layout_marginTop="8dp"
+                android:hint="@string/team_b_hint"
+                android:layout_marginTop="@dimen/name_marginTop"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
-                android:textColor="#616161"
-                android:textSize="14sp"/>
+                android:textColor="@color/nameTextColor"
+                android:textSize="@dimen/name_text_size"/>
 
 
             <LinearLayout
@@ -172,15 +171,15 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="35sp" />
+                    android:text="@string/team_b_runs"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/runs_text_size" />
 
                 <View
-                    android:layout_width="1dp"
+                    android:layout_width="@dimen/view_layout_width"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:background="@android:color/darker_gray" />
+                    android:layout_marginTop="@dimen/view_marginTop"
+                    android:background="@color/viewTextColor" />
 
                 <TextView
                     android:id="@+id/teamB_wickets"
@@ -189,9 +188,9 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="35sp" />
+                    android:text="@string/team_b_outs"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/runs_text_size" />
 
             </LinearLayout>
 
@@ -203,26 +202,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/runs_text_marginTop"
+                    android:layout_marginBottom="@dimen/runs_text_marginBottom"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="Runs"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:text="@string/team_b_runs_text"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/name_text_size" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="@dimen/runs_text_marginTop"
+                    android:layout_marginBottom="@dimen/runs_text_marginBottom"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
-                    android:text="Outs"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:text="@string/team_b_outs_text"
+                    android:textColor="@color/runsTextColor"
+                    android:textSize="@dimen/name_text_size"  />
 
             </LinearLayout>
 
@@ -230,37 +229,37 @@
                 android:id="@+id/add_six_to_teamB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="+6 Runs" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_6_runs" />
 
             <Button
                 android:id="@+id/add_four_to_teamB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="+4 Runs" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_4_runs" />
 
             <Button
                 android:id="@+id/add_one_to_teamB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="+1 RUN" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_1_run" />
 
             <Button
                 android:id="@+id/add_one_out_for_TeamB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="Outs" />
+                android:layout_marginBottom="@dimen/points_marginBottom"
+                android:layout_marginLeft="@dimen/points_marginLeft"
+                android:layout_marginRight="@dimen/points_marginRight"
+                android:text="@string/button_outs"  />
 
         </LinearLayout>
     </LinearLayout>
@@ -273,38 +272,37 @@
         android:layout_weight="1"
         android:layout_marginBottom="2dp"
         android:onClick="undo_last_action"
-        android:text="UNDO" />
+        android:text="@string/undo" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="@dimen/undo_text_marginBottom"
         android:onClick="match_results"
-        android:text="Results" />
+        android:text="@string/results_button" />
 
     <TextView
         android:id="@+id/final_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginBottom="2dp"
-
+        android:layout_marginBottom="@dimen/results_display_text_marginBottom"
         android:fontFamily="sans-serif-light"
         android:gravity="center_horizontal"
         android:text=""
-        android:textColor="#000000"
+        android:textColor="@color/results_display_TextColor"
         android:textStyle="bold"
-        android:textSize="30sp" />
+        android:textSize="@dimen/results_display_text_size" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="@dimen/reset_all_text_marginBottom"
         android:layout_weight="1"
         android:onClick="Reset_to_zero"
-        android:text="Reset all" />
+        android:text="@string/reset_all" />
 
 </LinearLayout>

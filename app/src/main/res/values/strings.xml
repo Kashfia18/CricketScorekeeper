@@ -2,4 +2,19 @@
     <string name="app_name">Cricket Score keeper</string>
     <string name="team_a_hint">Team A</string>
     <string name="team_a_runs">0</string>
+    <string name="team_a_outs">0</string>
+    <string name="team_a_runs_text">Runs</string>
+    <string name="team_a_outs_text">Outs</string>
+    <string name="button_6_runs">+6 Runs</string>
+    <string name="button_4_runs">+4 Runs</string>
+    <string name="button_1_run">+1 RUN</string>
+    <string name="button_outs">Outs</string>
+    <string name="team_b_hint">Team B</string>
+    <string name="team_b_runs">0</string>
+    <string name="team_b_outs">0</string>
+    <string name="team_b_runs_text">Runs</string>
+    <string name="team_b_outs_text">Outs</string>
+    <string name="undo">UNDO</string>
+    <string name="results_button">Results</string>
+    <string name="reset_all">Reset all</string>
 </resources>
