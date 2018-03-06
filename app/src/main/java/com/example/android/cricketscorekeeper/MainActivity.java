@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               wicketsOutTeamB = wicketsOutTeamB + 1;
               displayWicketsOutForTeamB(wicketsOutTeamB);
               lastScore = 1;
-              detector = "TeamAOuts";
+              detector = "TeamBOuts";
               break;
       }
   }
