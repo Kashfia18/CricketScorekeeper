@@ -9,4 +9,25 @@
         <item name="colorButtonNormal">#8BC34A</item>
 
     </style>
+
+    <style name="CodeEditText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/nameTextColor</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+    <style name="CodeTextView" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/runsTextColor</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">35sp</item>
+
+    </style>
+
+    <style name="CodeSmallTextTextView" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/runsTextColor</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
 </resources>

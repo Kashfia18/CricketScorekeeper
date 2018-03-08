@@ -1,6 +1,7 @@
 package com.example.android.cricketscorekeeper;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -26,8 +27,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Tracks which teams runs/outs was last updated.
     String detector;
-//    String nameTeamA;
-//    String nameTeamB;
+
+    //Initialize the TextViews, EditText View and their string variables
+    TextView textviewSavedStateRunsTeamA;
+    String textviewSavedStateRunsTeamAString;
+    TextView textviewSavedStateWicketsTeamA;
+    String textviewSavedStateWicketsTeamAString;
+    TextView textviewSavedStateRunsTeamB;
+    String textviewSavedStateRunsTeamBString;
+    TextView textviewSavedStateWicketsTeamB;
+    String textviewSavedStateWicketsTeamBString;
+    TextView textviewSavedStateFinalResults;
+    String textviewSavedStateFinalResultsString;
+    EditText editTextSavedStateTeamAName;
+    String editTextSavedStateTeamANameString;
+    EditText editTextSavedStateTeamBName;
+    String editTextSavedStateTeamBNameString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +79,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button outsTeamB = findViewById(R.id.add_one_out_for_TeamB);
         outsTeamB.setOnClickListener(this);
 
+
+        textviewSavedStateRunsTeamA = findViewById(R.id. teamA_runs_score);
+        textviewSavedStateWicketsTeamA = findViewById(R.id. teamA_wickets);
+        textviewSavedStateRunsTeamB = findViewById(R.id. teamB_runs_score);
+        textviewSavedStateWicketsTeamB = findViewById(R.id. teamB_wickets);
+        textviewSavedStateFinalResults = findViewById(R.id.final_results);
+        editTextSavedStateTeamAName = findViewById(R.id.TeamA_name_input);
+        editTextSavedStateTeamBName = findViewById(R.id.TeamB_name_input);
+
+
+
+    }
+    /**
+     * Saves data of activity before it is destroyed
+     */
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(outState);
+
+        //extract text from the TextViews and EditText Views and store it in string
+        textviewSavedStateRunsTeamAString = textviewSavedStateRunsTeamA.getText().toString();
+        textviewSavedStateWicketsTeamAString = textviewSavedStateWicketsTeamA.getText().toString();
+        textviewSavedStateRunsTeamBString = textviewSavedStateRunsTeamB.getText().toString();
+        textviewSavedStateWicketsTeamBString = textviewSavedStateWicketsTeamB.getText().toString();
+        textviewSavedStateFinalResultsString = textviewSavedStateFinalResults.getText().toString();
+        editTextSavedStateTeamANameString = editTextSavedStateTeamAName.getText().toString();
+        editTextSavedStateTeamBNameString = editTextSavedStateTeamBName.getText().toString();
+
+        //save the user's current game's state
+        outState.putInt("runsTeamA", runsTeamA);
+        outState.putInt("wicketsOutTeamA", wicketsOutTeamA);
+        outState.putInt("runsTeamB", runsTeamB);
+        outState.putInt("wicketsOutTeamB", wicketsOutTeamB);
+        outState.putInt("lastScore", lastScore);
+        outState.putString ("detector",detector );
+        outState.putString ("runsTeamAString",textviewSavedStateRunsTeamAString );
+        outState.putString ("outsTeamAString",textviewSavedStateWicketsTeamAString);
+        outState.putString ("runsTeamBString",textviewSavedStateRunsTeamBString );
+        outState.putString ("outsTeamBString",textviewSavedStateWicketsTeamBString);
+        outState.putString ("finalResults",textviewSavedStateFinalResultsString);
+        outState.putString ("teamAName",editTextSavedStateTeamANameString);
+        outState.putString ("teamBName",editTextSavedStateTeamBNameString);
     }
 
-  public void onClick (View view){
+    /**
+     * Restores data to the saved state when activity is recreated.
+     */
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // restores the values from their saved instances
+        textviewSavedStateRunsTeamA.setText(savedInstanceState.getString("runsTeamAString"));
+        textviewSavedStateWicketsTeamA.setText(savedInstanceState.getString("outsTeamAString"));
+        textviewSavedStateRunsTeamB.setText(savedInstanceState.getString("runsTeamBString"));
+        textviewSavedStateWicketsTeamB.setText(savedInstanceState.getString("outsTeamBString"));
+        textviewSavedStateFinalResults.setText(savedInstanceState.getString("finalResults"));
+        editTextSavedStateTeamAName.setText(savedInstanceState.getString("teamAName"));
+        editTextSavedStateTeamBName.setText(savedInstanceState.getString("teamBName"));
+        detector = savedInstanceState.getString("detector");
+        lastScore = savedInstanceState.getInt("lastScore");
+        runsTeamA = savedInstanceState.getInt("runsTeamA");
+        wicketsOutTeamA = savedInstanceState.getInt("wicketsOutTeamA");
+        runsTeamB = savedInstanceState.getInt("runsTeamB");
+        wicketsOutTeamB = savedInstanceState.getInt("wicketsOutTeamB");
+        }
+
+
+    /**
+     * Calculates and updates score based on button clicks.
+     */
+    public void onClick (View view){
 
       switch(view.getId()){
 
