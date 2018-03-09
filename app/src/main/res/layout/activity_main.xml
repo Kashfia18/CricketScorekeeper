@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context="com.example.android.cricketscorekeeper.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/reset_all_text_marginBottom">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -284,7 +286,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/reset_all_text_marginBottom"
             android:layout_weight="1"
             android:onClick="Reset_to_zero"
             android:text="@string/reset_all" />

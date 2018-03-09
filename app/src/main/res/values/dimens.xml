@@ -15,6 +15,6 @@
     <dimen name="undo_text_marginBottom">2dp</dimen>
     <dimen name="results_text_marginBottom">2dp</dimen>
     <dimen name="results_display_text_marginBottom">2dp</dimen>
-    <dimen name="results_display_text_size">18sp</dimen>
-    <dimen name="reset_all_text_marginBottom">2dp</dimen>
+    <dimen name="results_display_text_size">35sp</dimen>
+    <dimen name="reset_all_text_marginBottom">8dp</dimen>
 </resources>
