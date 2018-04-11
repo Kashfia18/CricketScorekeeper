@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editTextSavedStateTeamBName;
     String editTextSavedStateTeamBNameString;
 
+    String nameTeamA;
+    String nameTeamB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,8 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textviewSavedStateFinalResults = findViewById(R.id.final_results);
         editTextSavedStateTeamAName = findViewById(R.id.TeamA_name_input);
         editTextSavedStateTeamBName = findViewById(R.id.TeamB_name_input);
-
-
 
     }
     /**
@@ -333,22 +334,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         displayWicketsOutForTeamB(wicketsOutTeamB = 0);
         matchResultDisplay("");
         //Clears name of TeamA
-        EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
-        nameOfTeamA.getText().clear();
+        //EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
+        editTextSavedStateTeamAName.getText().clear();
         //Clears name of TeamB
-        EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
-        nameOfTeamB.getText().clear();
+        //EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
+        editTextSavedStateTeamBName.getText().clear();
     }
     /**
      * Displays result of the match
      */
     public void match_results(View view) {
         //Figure out name of TeamA
-        EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
-        String nameTeamA = nameOfTeamA.getText().toString();
+        //EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
+        nameTeamA = editTextSavedStateTeamAName.getText().toString();
+
         //Figure out name of the TeamB
-        EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
-        String nameTeamB = nameOfTeamB.getText().toString();
+        //EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
+        nameTeamB = editTextSavedStateTeamBName.getText().toString();
         if (runsTeamA > runsTeamB) {
             matchResultDisplay(nameTeamA + " won the match");
         } else if (runsTeamA < runsTeamB) {
