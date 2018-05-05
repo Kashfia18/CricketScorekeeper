@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -51,14 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        final EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
-//        nameTeamA = nameOfTeamA.getText().toString();
-//        final EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
-//        nameTeamB = nameOfTeamB.getText().toString();
-        //Next two lines just tell the app to listen for a button click. findviewbyid tells which button was clicked.
-        //Once this happens it calls public void onClick(View view)
 
+        //hides the keyboard for edit textviews.
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        //initialize and declare the button objects. findViewById links the button view of xml with the button object.
         Button sixRunsTeamA = findViewById(R.id.add_six_to_teamA);
+        //setting listener to button
         sixRunsTeamA.setOnClickListener(this);
 
         Button fourRunsTeamA = findViewById(R.id.add_four_to_teamA);
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextSavedStateTeamANameString = editTextSavedStateTeamAName.getText().toString();
         editTextSavedStateTeamBNameString = editTextSavedStateTeamBName.getText().toString();
 
-        //save the user's current game's state
+        //save the user's current game's state. Saves the values as well as the dislay, as strings.
         outState.putInt("runsTeamA", runsTeamA);
         outState.putInt("wicketsOutTeamA", wicketsOutTeamA);
         outState.putInt("runsTeamB", runsTeamB);
@@ -168,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
           case R.id.add_four_to_teamA:
               runsTeamA=runsTeamA+4;
-              lastScore =4;
               displayRunsForTeamA(runsTeamA);
               lastScore = 4;
               detector = "TeamA";
@@ -207,7 +206,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               runsTeamB=runsTeamB+4;
               lastScore =4;
               displayRunsForTeamB(runsTeamB);
-              lastScore = 4;
               detector = "TeamB";
               break;
 
@@ -232,93 +230,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   }
 
     /**
-     *
-     * Increase the runs for Team A by 6 points.
-     */
-//    public void add_six_to_teamA_score(View view) {
-//        runsTeamA = runsTeamA + 6;
-//        displayRunsForTeamA(runsTeamA);
-//        lastScore = 6;
-//        detector = "TeamA";
-//    }
-    /**
-     * Increase the runs for Team A by 4 points.
-     */
-//    public void add_four_to_teamA_score(View view) {
-//        runsTeamA = runsTeamA + 4;
-//        displayRunsForTeamA(runsTeamA);
-//        lastScore = 4;
-//        detector = "TeamA";
-//    }
-
-    /**
-     * Increase the runs for Team A by 1 point.
-     */
-//    public void add_one_to_teamA_score(View view) {
-//        runsTeamA = runsTeamA + 1;
-//        displayRunsForTeamA(runsTeamA);
-//        lastScore = 1;
-//        detector = "TeamA";
-//    }
-//    /**
-//     * Displays the given no of wickets down for Team A.
-//     */
-//    public void add_wickets_out_for_teamA(View view) {
-//        wicketsOutTeamA = wicketsOutTeamA + 1;
-//        displayWicketsOutForTeamA(wicketsOutTeamA);
-//        lastScore = 1;
-//        detector = "TeamAOuts";
-//    }
-    /**
-     * Increase the runs for Team B by 6 points.
-     */
-//    public void add_six_to_teamB_score(View view) {
-//        runsTeamB = runsTeamB + 6;
-//        displayRunsForTeamB(runsTeamB);
-//        lastScore = 6;
-//        detector = "TeamB";
-//    }
-    /**
-     * Increase the runs for Team B by 4 points.
-     */
-//    public void add_four_to_teamB_score(View view) {
-//        runsTeamB = runsTeamB + 4;
-//        displayRunsForTeamB(runsTeamB);
-//        lastScore = 4;
-//        detector = "TeamB";
-//    }
-    /**
-     * Increase the runs for Team B by 1 point.
-     */
-//    public void add_one_to_teamB_score(View view) {
-//        runsTeamB = runsTeamB + 1;
-//        displayRunsForTeamB(runsTeamB);
-//        lastScore = 1;
-//        detector = "TeamB";
-//    }
-    /**
-     * Displays the given no of wickets down for Team B.
-     */
-//    public void add_wickets_out_for_teamB(View view) {
-//        wicketsOutTeamB = wicketsOutTeamB + 1;
-//        displayWicketsOutForTeamB(wicketsOutTeamB);
-//        lastScore = 1;
-//        detector = "TeamBOuts";
-//    }
-    /**
      * Undo es last action.
      */
     public void undo_last_action(View view) {
-        if (detector == "TeamA") {
+        if (detector.equals("TeamA")) {
             runsTeamA = runsTeamA - lastScore;
             displayRunsForTeamA(runsTeamA);
-        } else if (detector == "TeamAOuts") {
+        } else if (detector.equals("TeamAOuts")) {
             wicketsOutTeamA = wicketsOutTeamA - lastScore;
             displayWicketsOutForTeamA(wicketsOutTeamA);
-        } else if (detector == "TeamB") {
+        } else if (detector.equals("TeamB")) {
             runsTeamB = runsTeamB - lastScore;
             displayRunsForTeamB(runsTeamB);
-        } else if (detector == "TeamBOuts") {
+        } else if (detector.equals("TeamBOuts")) {
             wicketsOutTeamB = wicketsOutTeamB - lastScore;
             displayWicketsOutForTeamB(wicketsOutTeamB);
         }
@@ -334,10 +258,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         displayWicketsOutForTeamB(wicketsOutTeamB = 0);
         matchResultDisplay("");
         //Clears name of TeamA
-        //EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
         editTextSavedStateTeamAName.getText().clear();
         //Clears name of TeamB
-        //EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
         editTextSavedStateTeamBName.getText().clear();
     }
     /**
@@ -345,11 +267,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     public void match_results(View view) {
         //Figure out name of TeamA
-        //EditText nameOfTeamA = (EditText) findViewById(R.id.TeamA_name_input);
         nameTeamA = editTextSavedStateTeamAName.getText().toString();
 
         //Figure out name of the TeamB
-        //EditText nameOfTeamB = (EditText) findViewById(R.id.TeamB_name_input);
         nameTeamB = editTextSavedStateTeamBName.getText().toString();
         if (runsTeamA > runsTeamB) {
             matchResultDisplay(nameTeamA + " won the match");
@@ -363,35 +283,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Displays the given score for Team A.
      */
     public void displayRunsForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.teamA_runs_score);
+        TextView scoreView = findViewById(R.id.teamA_runs_score);
         scoreView.setText(String.valueOf(score));
     }
     /**
      * Displays the given no of wickets out for Team A.
      */
     public void displayWicketsOutForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.teamA_wickets);
+        TextView scoreView = findViewById(R.id.teamA_wickets);
         scoreView.setText(String.valueOf(score));
     }
     /**
      * Displays the given score for Team B.
      */
     public void displayRunsForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.teamB_runs_score);
+        TextView scoreView = findViewById(R.id.teamB_runs_score);
         scoreView.setText(String.valueOf(score));
     }
     /**
      * Displays the given no of wickets out for Team B.
      */
     public void displayWicketsOutForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.teamB_wickets);
+        TextView scoreView = findViewById(R.id.teamB_wickets);
         scoreView.setText(String.valueOf(score));
     }
     /**
      * Displays the final results of the match
      */
     private void matchResultDisplay(String message) {
-        TextView resultTextView = (TextView) findViewById(R.id.final_results);
+        TextView resultTextView = findViewById(R.id.final_results);
         resultTextView.setText(message);
     }
 }
