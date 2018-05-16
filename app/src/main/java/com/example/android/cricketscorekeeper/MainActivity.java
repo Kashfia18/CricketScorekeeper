@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Tracks which teams runs/outs was last updated.
     String detector;
 
-    //Initialize the TextViews, EditText View and their string variables
+    //Initialize the TextViews, EditText Views and their string variables
     TextView textviewSavedStateRunsTeamA;
     String textviewSavedStateRunsTeamAString;
     TextView textviewSavedStateWicketsTeamA;
@@ -53,11 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //hides the keyboard for edit textviews.
+        //hides the keyboard for EditText views.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //initialize and declare the button objects. findViewById links the button view of xml with the button object.
         Button sixRunsTeamA = findViewById(R.id.add_six_to_teamA);
+
         //setting listener to button
         sixRunsTeamA.setOnClickListener(this);
 
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button outsTeamB = findViewById(R.id.add_one_out_for_TeamB);
         outsTeamB.setOnClickListener(this);
 
-
+        //Declare the TextViews and EditText Views
         textviewSavedStateRunsTeamA = findViewById(R.id. teamA_runs_score);
         textviewSavedStateWicketsTeamA = findViewById(R.id. teamA_wickets);
         textviewSavedStateRunsTeamB = findViewById(R.id. teamB_runs_score);
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onSaveInstanceState(Bundle outState) {
+
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(outState);
 
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextSavedStateTeamANameString = editTextSavedStateTeamAName.getText().toString();
         editTextSavedStateTeamBNameString = editTextSavedStateTeamBName.getText().toString();
 
-        //save the user's current game's state. Saves the values as well as the dislay, as strings.
+        //save the user's current game's state. Saves the values as well as the display, as strings.
         outState.putInt("runsTeamA", runsTeamA);
         outState.putInt("wicketsOutTeamA", wicketsOutTeamA);
         outState.putInt("runsTeamB", runsTeamB);
@@ -131,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
         // restores the values from their saved instances
         textviewSavedStateRunsTeamA.setText(savedInstanceState.getString("runsTeamAString"));
         textviewSavedStateWicketsTeamA.setText(savedInstanceState.getString("outsTeamAString"));
@@ -156,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       switch(view.getId()){
 
           //Increase the runs for Team A by 6 points.
-
           case R.id.add_six_to_teamA:
               runsTeamA=runsTeamA+6;
               displayRunsForTeamA(runsTeamA);
@@ -165,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Increase the runs for Team A by 4 points.
-
           case R.id.add_four_to_teamA:
               runsTeamA=runsTeamA+4;
               displayRunsForTeamA(runsTeamA);
@@ -174,7 +175,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Increase the runs for Team A by 1 point.
-
           case R.id.add_one_to_teamA:
               runsTeamA=runsTeamA+1;
               displayRunsForTeamA(runsTeamA);
@@ -183,7 +183,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Displays the given no of wickets out for Team A.
-
           case R.id.add_one_out_for_TeamA:
               wicketsOutTeamA = wicketsOutTeamA + 1;
               displayWicketsOutForTeamA(wicketsOutTeamA);
@@ -192,7 +191,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Increase the runs for Team B by 6 points.
-
           case R.id.add_six_to_teamB:
               runsTeamB=runsTeamB+6;
               displayRunsForTeamB(runsTeamB);
@@ -201,7 +199,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Increase the runs for Team B by 4 points.
-
           case R.id.add_four_to_teamB:
               runsTeamB=runsTeamB+4;
               lastScore =4;
@@ -210,7 +207,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Increase the runs for Team B by 1 point.
-
           case R.id.add_one_to_teamB:
               runsTeamB=runsTeamB+1;
               displayRunsForTeamB(runsTeamB);
@@ -219,7 +215,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               break;
 
           //Displays the given no of wickets out for Team B.
-
           case R.id.add_one_out_for_TeamB:
               wicketsOutTeamB = wicketsOutTeamB + 1;
               displayWicketsOutForTeamB(wicketsOutTeamB);
@@ -233,21 +228,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Undo es last action.
      */
     public void undo_last_action(View view) {
-        if (detector.equals("TeamA")) {
-            runsTeamA = runsTeamA - lastScore;
-            displayRunsForTeamA(runsTeamA);
-        } else if (detector.equals("TeamAOuts")) {
-            wicketsOutTeamA = wicketsOutTeamA - lastScore;
-            displayWicketsOutForTeamA(wicketsOutTeamA);
-        } else if (detector.equals("TeamB")) {
-            runsTeamB = runsTeamB - lastScore;
-            displayRunsForTeamB(runsTeamB);
-        } else if (detector.equals("TeamBOuts")) {
-            wicketsOutTeamB = wicketsOutTeamB - lastScore;
-            displayWicketsOutForTeamB(wicketsOutTeamB);
+
+        switch (detector) {
+
+            //Undo es the last clicked run for Team A.
+            case "TeamA":
+                runsTeamA = runsTeamA - lastScore;
+                displayRunsForTeamA(runsTeamA);
+                break;
+
+            //Undo es the last clicked out for Team A.
+            case "TeamAOuts":
+                wicketsOutTeamA = wicketsOutTeamA - lastScore;
+                displayWicketsOutForTeamA(wicketsOutTeamA);
+                break;
+
+            //Undo es the last clicked run for Team A.
+            case "TeamB":
+                runsTeamB = runsTeamB - lastScore;
+                displayRunsForTeamB(runsTeamB);
+                break;
+
+            //Undo es the last clicked out for Team A.
+            case "TeamBOuts":
+                wicketsOutTeamB = wicketsOutTeamB - lastScore;
+                displayWicketsOutForTeamB(wicketsOutTeamB);
+                break;
+
         }
         lastScore = 0;
     }
+
     /**
      * Resets everything to initial stage
      */
@@ -257,8 +268,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         displayWicketsOutForTeamA(wicketsOutTeamA = 0);
         displayWicketsOutForTeamB(wicketsOutTeamB = 0);
         matchResultDisplay("");
+
         //Clears name of TeamA
         editTextSavedStateTeamAName.getText().clear();
+
         //Clears name of TeamB
         editTextSavedStateTeamBName.getText().clear();
     }
@@ -271,6 +284,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Figure out name of the TeamB
         nameTeamB = editTextSavedStateTeamBName.getText().toString();
+
         if (runsTeamA > runsTeamB) {
             matchResultDisplay(nameTeamA + " won the match");
         } else if (runsTeamA < runsTeamB) {
@@ -283,35 +297,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Displays the given score for Team A.
      */
     public void displayRunsForTeamA(int score) {
-        TextView scoreView = findViewById(R.id.teamA_runs_score);
-        scoreView.setText(String.valueOf(score));
+        textviewSavedStateRunsTeamA.setText(String.valueOf(score));
     }
+
     /**
      * Displays the given no of wickets out for Team A.
      */
     public void displayWicketsOutForTeamA(int score) {
-        TextView scoreView = findViewById(R.id.teamA_wickets);
-        scoreView.setText(String.valueOf(score));
+        textviewSavedStateWicketsTeamA.setText(String.valueOf(score));
     }
+
     /**
      * Displays the given score for Team B.
      */
     public void displayRunsForTeamB(int score) {
-        TextView scoreView = findViewById(R.id.teamB_runs_score);
-        scoreView.setText(String.valueOf(score));
+        textviewSavedStateRunsTeamB.setText(String.valueOf(score));
     }
+
     /**
      * Displays the given no of wickets out for Team B.
      */
     public void displayWicketsOutForTeamB(int score) {
-        TextView scoreView = findViewById(R.id.teamB_wickets);
-        scoreView.setText(String.valueOf(score));
+        textviewSavedStateWicketsTeamB.setText(String.valueOf(score));
     }
+
     /**
      * Displays the final results of the match
      */
     private void matchResultDisplay(String message) {
-        TextView resultTextView = findViewById(R.id.final_results);
-        resultTextView.setText(message);
+        textviewSavedStateFinalResults.setText(message);
     }
 }

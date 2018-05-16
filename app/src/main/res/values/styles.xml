@@ -30,4 +30,15 @@
         <item name="android:textSize">14sp</item>
 
     </style>
+
+    <style name="ButtonStyles">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/points_marginBottom</item>
+        <item name="android:layout_marginLeft">@dimen/points_marginLeft</item>
+        <item name="android:layout_marginStart">@dimen/points_marginLeft</item>
+        <item name="android:layout_marginRight">@dimen/points_marginRight</item>
+        <item name="android:layout_marginEnd">@dimen/points_marginRight</item>
+
+    </style>
 </resources>

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -92,21 +92,13 @@
                 </LinearLayout>
 
                 <Button
+                    style="@style/ButtonStyles"
                     android:id="@+id/add_six_to_teamA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
                     android:text="@string/button_6_runs" />
 
                 <Button
+                    style="@style/ButtonStyles"
                     android:id="@+id/add_four_to_teamA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
                     android:text="@string/button_4_runs" />
 
                 <Button
