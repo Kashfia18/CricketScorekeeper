@@ -1,7 +1,6 @@
 package com.example.android.cricketscorekeeper;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,41 +11,32 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //initial run score for Team A.
-    int runsTeamA = 0;
+    private int runsTeamA = 0;
 
     //initial outs score for Team A.
-    int wicketsOutTeamA = 0;
+    private int wicketsOutTeamA = 0;
 
     //initial run score for Team B.
-    int runsTeamB = 0;
+    private int runsTeamB = 0;
 
     //initial outs score for Team B.
-    int wicketsOutTeamB = 0;
+    private int wicketsOutTeamB = 0;
 
     //Tracks last action.
-    int lastScore = 0;
+    private int lastScore = 0;
 
     //Tracks which teams runs/outs was last updated.
-    String detector;
+    private String detector;
 
-    //Initialize the TextViews, EditText Views and their string variables
-    TextView textviewSavedStateRunsTeamA;
-    String textviewSavedStateRunsTeamAString;
-    TextView textviewSavedStateWicketsTeamA;
-    String textviewSavedStateWicketsTeamAString;
-    TextView textviewSavedStateRunsTeamB;
-    String textviewSavedStateRunsTeamBString;
-    TextView textviewSavedStateWicketsTeamB;
-    String textviewSavedStateWicketsTeamBString;
-    TextView textviewSavedStateFinalResults;
-    String textviewSavedStateFinalResultsString;
-    EditText editTextSavedStateTeamAName;
-    String editTextSavedStateTeamANameString;
-    EditText editTextSavedStateTeamBName;
-    String editTextSavedStateTeamBNameString;
+    //Declare the TextViews, EditText Views and their string variables
+    private TextView textviewSavedStateRunsTeamA;
+    private TextView textviewSavedStateWicketsTeamA;
+    private TextView textviewSavedStateRunsTeamB;
+    private TextView textviewSavedStateWicketsTeamB;
+    private TextView textviewSavedStateFinalResults;
+    private EditText editTextSavedStateTeamAName;
+    private EditText editTextSavedStateTeamBName;
 
-    String nameTeamA;
-    String nameTeamB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //hides the keyboard for EditText views.
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        //initialize and declare the button objects. findViewById links the button view of xml with the button object.
+        //Declare and initialize the button objects. findViewById links the button view of xml with the button object.
         Button sixRunsTeamA = findViewById(R.id.add_six_to_teamA);
-
         //setting listener to button
         sixRunsTeamA.setOnClickListener(this);
 
@@ -83,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button outsTeamB = findViewById(R.id.add_one_out_for_TeamB);
         outsTeamB.setOnClickListener(this);
 
-        //Declare the TextViews and EditText Views
+        //Initialize the TextViews and EditText Views
         textviewSavedStateRunsTeamA = findViewById(R.id. teamA_runs_score);
         textviewSavedStateWicketsTeamA = findViewById(R.id. teamA_wickets);
         textviewSavedStateRunsTeamB = findViewById(R.id. teamB_runs_score);
@@ -98,6 +87,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onSaveInstanceState(Bundle outState) {
+
+        //Declare the string variables that will store the names and values in string.
+        String textviewSavedStateRunsTeamAString;
+        String textviewSavedStateWicketsTeamAString;
+        String textviewSavedStateRunsTeamBString;
+        String textviewSavedStateWicketsTeamBString;
+        String textviewSavedStateFinalResultsString;
+        String editTextSavedStateTeamANameString;
+        String editTextSavedStateTeamBNameString;
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(outState);
@@ -279,6 +277,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Displays result of the match
      */
     public void match_results(View view) {
+
+        //initialize the string variable to save the input names of the teams.
+        String nameTeamA;
+        String nameTeamB;
+
         //Figure out name of TeamA
         nameTeamA = editTextSavedStateTeamAName.getText().toString();
 
@@ -294,30 +297,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     /**
-     * Displays the given score for Team A.
+     * Displays the given runs for Team A.
      */
-    public void displayRunsForTeamA(int score) {
+    private void displayRunsForTeamA(int score) {
         textviewSavedStateRunsTeamA.setText(String.valueOf(score));
     }
 
     /**
      * Displays the given no of wickets out for Team A.
      */
-    public void displayWicketsOutForTeamA(int score) {
+    private void displayWicketsOutForTeamA(int score) {
         textviewSavedStateWicketsTeamA.setText(String.valueOf(score));
     }
 
     /**
-     * Displays the given score for Team B.
+     * Displays the given runs for Team B.
      */
-    public void displayRunsForTeamB(int score) {
+    private void displayRunsForTeamB(int score) {
         textviewSavedStateRunsTeamB.setText(String.valueOf(score));
     }
 
     /**
      * Displays the given no of wickets out for Team B.
      */
-    public void displayWicketsOutForTeamB(int score) {
+    private void displayWicketsOutForTeamB(int score) {
         textviewSavedStateWicketsTeamB.setText(String.valueOf(score));
     }
 

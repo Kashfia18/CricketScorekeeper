@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,12 +24,8 @@
 
                 <EditText
                     android:id="@+id/TeamA_name_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/name_marginTop"
-                    android:gravity="center_horizontal"
+                    style="@style/CodeEditText"
                     android:hint="@string/team_a_hint"
-                    android:inputType="textCapWords"
                     android:textAppearance="@style/CodeEditText" />
 
                 <LinearLayout
@@ -40,12 +35,9 @@
 
                     <TextView
                         android:id="@+id/teamA_runs_score"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/CodeTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_a_runs"
-                        android:textAppearance="@style/CodeTextView" />
+                        android:text="@string/team_a_runs" />
 
                     <View
                         android:layout_width="@dimen/view_layout_width"
@@ -55,12 +47,9 @@
 
                     <TextView
                         android:id="@+id/teamA_wickets"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/CodeTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_a_outs"
-                        android:textAppearance="@style/CodeTextView" />
+                        android:text="@string/team_a_outs" />
 
                 </LinearLayout>
 
@@ -70,53 +59,35 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/runs_text_marginBottom"
-                        android:layout_marginTop="@dimen/runs_text_marginTop"
+                        style="@style/CodeSmallTextTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_a_runs_text"
-                        android:textAppearance="@style/CodeSmallTextTextView"/>
+                        android:text="@string/team_a_runs_text" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/runs_text_marginBottom"
-                        android:layout_marginTop="@dimen/runs_text_marginTop"
+                        style="@style/CodeSmallTextTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_a_outs_text"
-                        android:textAppearance="@style/CodeSmallTextTextView"/>
+                        android:text="@string/team_a_outs_text" />
 
                 </LinearLayout>
 
                 <Button
-                    style="@style/ButtonStyles"
                     android:id="@+id/add_six_to_teamA"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_6_runs" />
 
                 <Button
-                    style="@style/ButtonStyles"
                     android:id="@+id/add_four_to_teamA"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_4_runs" />
 
                 <Button
                     android:id="@+id/add_one_to_teamA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_1_run" />
 
                 <Button
                     android:id="@+id/add_one_out_for_TeamA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_outs" />
 
             </LinearLayout>
@@ -135,12 +106,8 @@
 
                 <EditText
                     android:id="@+id/TeamB_name_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/name_marginTop"
-                    android:gravity="center_horizontal"
+                    style="@style/CodeEditText"
                     android:hint="@string/team_b_hint"
-                    android:inputType="textCapWords"
                     android:textAppearance="@style/CodeEditText" />
 
 
@@ -151,10 +118,8 @@
 
                     <TextView
                         android:id="@+id/teamB_runs_score"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/CodeTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
                         android:text="@string/team_b_runs"
                         android:textAppearance="@style/CodeTextView" />
 
@@ -166,12 +131,9 @@
 
                     <TextView
                         android:id="@+id/teamB_wickets"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/CodeTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_b_outs"
-                        android:textAppearance="@style/CodeTextView" />
+                        android:text="@string/team_b_outs" />
 
                 </LinearLayout>
 
@@ -181,68 +143,41 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/runs_text_marginBottom"
-                        android:layout_marginTop="@dimen/runs_text_marginTop"
+                        style="@style/CodeSmallTextTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_b_runs_text"
-                        android:textAppearance="@style/CodeSmallTextTextView" />
+                        android:text="@string/team_b_runs_text" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/runs_text_marginBottom"
-                        android:layout_marginTop="@dimen/runs_text_marginTop"
+                        style="@style/CodeSmallTextTextView"
                         android:layout_weight="1"
-                        android:gravity="center_horizontal"
-                        android:text="@string/team_b_outs_text"
-                        android:textAppearance="@style/CodeSmallTextTextView" />
+                        android:text="@string/team_b_outs_text" />
 
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/add_six_to_teamB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_6_runs" />
 
                 <Button
                     android:id="@+id/add_four_to_teamB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_4_runs" />
 
                 <Button
                     android:id="@+id/add_one_to_teamB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_1_run" />
 
                 <Button
                     android:id="@+id/add_one_out_for_TeamB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/points_marginBottom"
-                    android:layout_marginLeft="@dimen/points_marginLeft"
-                    android:layout_marginRight="@dimen/points_marginRight"
+                    style="@style/ButtonStyles"
                     android:text="@string/button_outs" />
 
             </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:id="@+id/undo_last_action"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

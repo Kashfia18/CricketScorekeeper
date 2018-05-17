@@ -10,24 +10,37 @@
 
     </style>
 
-    <style name="CodeEditText" parent="@android:style/TextAppearance">
+    <style name="CodeEditText">
         <item name="android:textColor">@color/nameTextColor</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/name_text_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/name_marginTop</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:inputType">textCapWords</item>
 
     </style>
 
-    <style name="CodeTextView" parent="@android:style/TextAppearance">
+    <style name="CodeTextView">
         <item name="android:textColor">@color/runsTextColor</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">35sp</item>
+        <item name="android:textSize">@dimen/runs_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
 
     </style>
 
-    <style name="CodeSmallTextTextView" parent="@android:style/TextAppearance">
+    <style name="CodeSmallTextTextView">
         <item name="android:textColor">@color/runsTextColor</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/name_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/runs_text_marginBottom</item>
+        <item name="android:layout_marginTop">@dimen/runs_text_marginTop</item>
+        <item name="android:gravity">center_horizontal</item>
 
     </style>
 
