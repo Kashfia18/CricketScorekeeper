@@ -72,7 +72,7 @@
 
                 <Button
                     android:id="@+id/add_six_to_teamA"
-                    style="@style/ButtonStyles"
+
                     android:text="@string/button_6_runs" />
 
                 <Button
