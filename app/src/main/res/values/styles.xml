@@ -7,7 +7,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Background color of buttons in the app -->
         <item name="colorButtonNormal">#8BC34A</item>
-        <item name="android:buttonStyle">@style/ButtonStyles</item>
 
     </style>
 
@@ -45,7 +44,7 @@
 
     </style>
 
-    <style name="ButtonStyles" parent="Base.Widget.AppCompat.Button">
+    <style name="ButtonStyles">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/points_marginBottom</item>
